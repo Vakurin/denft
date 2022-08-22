@@ -1,0 +1,1579 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "AdminBadRole",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "AssetAlreadyExist",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CallProxyBadRole",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ChainToIsNotSupported",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "DeBridgeTokenInfoNotFound",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MessageValueDoesNotMatchRequiredFee",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "nativeSender",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "chainIdFrom",
+						"type": "uint256"
+					}
+				],
+				"name": "NativeSenderBadRole",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotReceivedERC721",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TokenMustImplementIERC721Metadata",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "WrongArgument",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZeroAddress",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "bridgeAddress",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "chainId",
+						"type": "uint256"
+					}
+				],
+				"name": "AddedChainSupport",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					}
+				],
+				"name": "NFTClaimed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "debridgeId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "nativeAddress",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nativeChainId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenType",
+						"type": "uint256"
+					}
+				],
+				"name": "NFTContractAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "tokenUri",
+						"type": "string"
+					}
+				],
+				"name": "NFTMinted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "receiver",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "chainIdTo",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					}
+				],
+				"name": "NFTSent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "chainId",
+						"type": "uint256"
+					}
+				],
+				"name": "RemovedChainSupport",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "previousAdminRole",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "newAdminRole",
+						"type": "bytes32"
+					}
+				],
+				"name": "RoleAdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleGranted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleRevoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DEFAULT_ADMIN_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "TOKEN_BURNABLE_TYPE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_NFTBridgeAddress",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_chainId",
+						"type": "uint256"
+					}
+				],
+				"name": "addChainSupport",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_nftCollectionAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_receiverAddress",
+						"type": "address"
+					}
+				],
+				"name": "claim",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_minterAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_baseUri",
+						"type": "string"
+					}
+				],
+				"name": "createNFT",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "createdTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deBridgeGate",
+				"outputs": [
+					{
+						"internalType": "contract DeBridgeGate",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deBridgeNFTDeployer",
+				"outputs": [
+					{
+						"internalType": "contract DeBridgeNFTDeployer",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "getBridgeNFTInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "nativeChainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "exist",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getChainId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "cid",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getChainInfo",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "isSupported",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes",
+						"name": "nftBridgeAddress",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_nativeChainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_nftCollectionAddress",
+						"type": "bytes"
+					}
+				],
+				"name": "getDebridgeId",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_nativeChainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_nftCollectionAddress",
+						"type": "address"
+					}
+				],
+				"name": "getDebridgeId",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "getNativeInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "chainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "tokenAddress",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenType",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleAdmin",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "grantRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract DeBridgeGate",
+						"name": "_deBridgeGate",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_nftCollectionAddress",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nativeChainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_receiverAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_nativeName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_nativeSymbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_tokenUri",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nftCollectionType",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nonce",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_chainId",
+						"type": "uint256"
+					}
+				],
+				"name": "removeChainSupport",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "renounceRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_nftCollectionAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_permitDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_permitSignature",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_chainIdTo",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_receiverAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_executionFee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_referralCode",
+						"type": "uint32"
+					}
+				],
+				"name": "send",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract DeBridgeGate",
+						"name": "_deBridgeGate",
+						"type": "address"
+					}
+				],
+				"name": "setDeBridgeGate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract DeBridgeNFTDeployer",
+						"name": "_deBridgeNFTDeployer",
+						"type": "address"
+					}
+				],
+				"name": "setNFTDeployer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "version",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"addChainSupport(bytes,uint256)": {
+					"details": "Sets the address of the NFTBridge contract on the secondary chain, effectively enabling object transfers to it",
+					"params": {
+						"_NFTBridgeAddress": "The address of the NFTBridge contract deployed on the secondary chain",
+						"_chainId": "The id of the secondary chain"
+					}
+				},
+				"claim(address,uint256,address)": {
+					"details": "Releases the given object (being held by the current contract as a collateral) on the current native chain         and transfers it to the receiver.         This method is restricted by onlyCrossBridgeAddress modifier: it can be called only by deBridge CallProxy         and the origin transaction submitter must be an NFTBridge contract on the origin chain",
+					"params": {
+						"_nftCollectionAddress": "NFT collection's address on the current chain",
+						"_receiverAddress": "Address on target chain who will receive the object.",
+						"_tokenId": "ID of an object from the given NFT collection to receive and release"
+					}
+				},
+				"createNFT(address,string,string,string)": {
+					"details": "Deploys a new DeNFT collection with the minter role granted to the given address         and marks it internally as burn/mint-compatible collection",
+					"params": {
+						"_baseUri": "The base URI for the new DeNFT collection",
+						"_minterAddress": "the address newly created DeNFT collection's minter role must be granted to",
+						"_name": "The name for the new DeNFT collection",
+						"_symbol": "The symbol for the new DeNFT collection"
+					}
+				},
+				"getChainId()": {
+					"details": "Gets the current chain id"
+				},
+				"getDebridgeId(uint256,address)": {
+					"details": "Cross-chain identifier of a native NFT collection",
+					"params": {
+						"_nativeChainId": "Native chain ID for the NFT collection",
+						"_nftCollectionAddress": "Original NFT collection's address on the native chain"
+					}
+				},
+				"getDebridgeId(uint256,bytes)": {
+					"details": "Cross-chain identifier of a native NFT collection",
+					"params": {
+						"_nativeChainId": "Native chain ID for the NFT collection",
+						"_nftCollectionAddress": "Original NFT collection's address on the native chain"
+					}
+				},
+				"getRoleAdmin(bytes32)": {
+					"details": "Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}."
+				},
+				"grantRole(bytes32,address)": {
+					"details": "Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleGranted} event."
+				},
+				"hasRole(bytes32,address)": {
+					"details": "Returns `true` if `account` has been granted `role`."
+				},
+				"mint(bytes,uint256,uint256,address,string,string,string,uint256)": {
+					"details": "Mints the original object (if called on the native chain for burn/mint-compatible DeNFT collection)         or a wrapped version of an object (if called on the secondary chain).         This method is restricted by onlyCrossBridgeAddress modifier: it can be called only by deBridge CallProxy         and the origin transaction submitter must be an NFTBridge contract on the origin chain",
+					"params": {
+						"_nativeChainId": "Id of a native chain for the given NFT collection",
+						"_nativeName": "Payload: the original NFT collection's name",
+						"_nativeSymbol": "Payload: the original NFT collections' symbol",
+						"_nftCollectionAddress": "NFT collection's address on the current chain",
+						"_nftCollectionType": "Payload: the type of the collection indicating its approach compatibility",
+						"_receiverAddress": "Address on target chain who will receive the object.",
+						"_tokenId": "ID of an object from the given NFT collection to receive and mint",
+						"_tokenUri": "Payload: the canonical URI of an object from the given NFT collection to mint"
+					}
+				},
+				"onERC721Received(address,address,uint256,bytes)": {
+					"details": "Whenever an {IERC721} `tokenId` token is transferred to this contract via {IERC721-safeTransferFrom} by `operator` from `from`, this function is called. It must return its Solidity selector to confirm the token transfer. If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted. The selector can be obtained in Solidity with `IERC721Receiver.onERC721Received.selector`."
+				},
+				"paused()": {
+					"details": "Returns true if the contract is paused, and false otherwise."
+				},
+				"renounceRole(bytes32,address)": {
+					"details": "Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event."
+				},
+				"revokeRole(bytes32,address)": {
+					"details": "Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleRevoked} event."
+				},
+				"send(address,uint256,uint256,bytes,uint256,address,uint256,uint32)": {
+					"details": "Constructs and initiates a cross chain transfer of an object.         It obtains an object from the sender and constructs a message to operate the object on the target chain",
+					"params": {
+						"_chainIdTo": "Target chain id to transfer the given object to",
+						"_executionFee": "Fee to be paid to the claim transaction executor on target chain.",
+						"_nftCollectionAddress": "NFT collection's address in the current chain",
+						"_permitDeadline": "ERC-4494-compliant permit deadline",
+						"_permitSignature": "ERC-4494-compliant permit signature to obtain the given object",
+						"_receiverAddress": "Address on the target chain to transfer the bridged object to",
+						"_referralCode": "Referral code to be assigned to this cross chain transaction on the deBridge protocol",
+						"_tokenId": "ID of an object from the given NFT collection to transfer"
+					}
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				}
+			},
+			"stateVariables": {
+				"createdTokens": {
+					"details": "Cross chain-compatible original collections created by calling createNFT() on the current chain for the burn/mint approach"
+				},
+				"deBridgeGate": {
+					"details": "DeBridgeGate's address on the current chain"
+				},
+				"deBridgeNFTDeployer": {
+					"details": "DeBridgeNFTDeployer's address on the current chain"
+				},
+				"getBridgeNFTInfo": {
+					"details": "Stores the wrapper collections' details on the current chain.      These collections are identifiable by debridgeId"
+				},
+				"getChainInfo": {
+					"details": "Stores the addresses NFTBridge has been deployed at on the supported target chains (relative to the current chain)."
+				},
+				"getNativeInfo": {
+					"details": "Stores the original collections' metadata"
+				},
+				"nonce": {
+					"details": "Outgoing submissions count"
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"getBridgeNFTInfo(bytes32)": {
+					"notice": "See getDebridgeId() for details"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/NFT/NFTBridge.sol": "NFTBridge"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol": {
+			"keccak256": "0x2ea9f206854c98b67dd228f8cad22bfe90ba7b1c2295315672f2e1e244623fc3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b4a7ef6774a9acbbb01583a9fc4656ee9b3dae4b8d5099f480625bfc0af68a02",
+				"dweb:/ipfs/QmeXZcdZ7FELTc21GSgjRHXFCj4ohxrsZUaNzA5cMemAbE"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol": {
+			"keccak256": "0xb8f5302f12138c5561362e88a78d061573e6298b7a1a5afe84a1e2c8d4d5aeaa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://740cf4dc535e3082560cf5a031473029f322690fc8037fe9d5e3a8bef42e757c",
+				"dweb:/ipfs/QmTQxFdfxcaueQa23VX34wAPqzruZbkzyeN58tZK2yav2b"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+			"keccak256": "0x0203dcadc5737d9ef2c211d6fa15d18ebc3b30dfa51903b64870b01a062b0b4e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6eb2fd1e9894dbe778f4b8131adecebe570689e63cf892f4e21257bfe1252497",
+				"dweb:/ipfs/QmXgUGNfZvrn6N2miv3nooSs7Jm34A41qz94fu2GtDFcx8"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+			"keccak256": "0x40c636b4572ff5f1dc50cf22097e93c0723ee14eff87e99ac2b02636eeca1250",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9c7d1f5e15633ab912b74c2f57e24559e66b03232300d4b27ff0f25bc452ecad",
+				"dweb:/ipfs/QmYTJkc1cntYkKQ1Tu11nBcJLakiy93Tjytc4XHELo4GmR"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol": {
+			"keccak256": "0x8cc03c5ac17e8a7396e487cda41fc1f1dfdb91db7d528e6da84bee3b6dd7e167",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://607818f1b44548c2d8268176f73cdb290e1faed971b1061930d92698366e2a11",
+				"dweb:/ipfs/QmQibMe3r5no95b6q7isGT5R75V8xSofWEDLXzp95b7LgZ"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
+			"keccak256": "0x4e733d3164f73f461eaf9d8087a7ad1ea180bdc8ba0d3d61b0e1ae16d8e63dff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://75b47c3aeca7b66ea6752f8be020ec5c1c502de6ec9065272dae23d3a52196e2",
+				"dweb:/ipfs/QmUebPMHv16tYKFh5BmBQkMfRFb5b8UZ2RgVwdjxCeufVF"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol": {
+			"keccak256": "0x605434219ebbe4653f703640f06969faa5a1d78f0bfef878e5ddbb1ca369ceeb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4c9c634f99dd02d73ce7498b03a6305e251c05eeebb71457306561c1fab0fa7d",
+				"dweb:/ipfs/QmbYRBbZHy8YoaQKXdPryiL3CSS7uUaRfRYi1TUj9cTqJQ"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-IERC20PermitUpgradeable.sol": {
+			"keccak256": "0xcc70d8e2281fb3ff69e8ab242500f10142cd0a7fa8dd9e45882be270d4d09024",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://17a4063bc918df0f7bb9cbf04c6f0bb4977afab3f2fc212bc138a178312a221d",
+				"dweb:/ipfs/QmZMdvsHP5mDEAAdrK4bNeNh47TfmSFgN9qEBFTbie7zmm"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol": {
+			"keccak256": "0xf42efac0d704b136c4d85e970562d4dbc1160d726ee93b5133122eb14fe368df",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e814c30d43cef5501933b775f33a6d6f06cde8aa3b7ce3773cf2256169bb6a1b",
+				"dweb:/ipfs/QmWMqHGc8MHDRgrPrtVyPqsYizr8dJsyFhnmwQV6aQwPKn"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
+			"keccak256": "0x5331c8909221d9f9f3851cfadd5959d0873413a2c27e30e0f2fa234158c1c6cf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://31c7d52f47a9174e236c0402654f42c16516c58c6851862f3bcb1b440b873498",
+				"dweb:/ipfs/QmZQqiofa8jPJCCAfWyjNnBuoGXrR56Ct4HyW4ugRWfvCb"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+			"keccak256": "0xbb2ed8106d94aeae6858e2551a1e7174df73994b77b13ebd120ccaaef80155f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8bc3c6a456dba727d8dd9fd33420febede490abb49a07469f61d2a3ace66a95a",
+				"dweb:/ipfs/QmVAWtEVj7K5AbvgJa9Dz22KiDq9eoptCjnVZqsTMtKXyd"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
+			"keccak256": "0x016298e66a5810253c6c905e61966bb31c8775c3f3517bf946ff56ee31d6c005",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1723de5ae414f210db039b19e6487c19c2d643483c9be7c445cf481a80c199d2",
+				"dweb:/ipfs/QmcBLbmPdZsNngYhA1KDadNUqQZoGACytFWuUH74RC4AXC"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
+			"keccak256": "0x95a471796eb5f030fdc438660bebec121ad5d063763e64d92376ffb4b5ce8b70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ffbd627e6958983d288801acdedbf3491ee0ebf1a430338bce47c96481ce9e3",
+				"dweb:/ipfs/QmUM1vpmNgBV34sYf946SthDJNGhwwqjoRggmj4TUUQmdB"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+			"keccak256": "0x611aa3f23e59cfdd1863c536776407b3e33d695152a266fa7cfb34440a29a8a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9b4b2110b7f2b3eb32951bc08046fa90feccffa594e1176cb91cdfb0e94726b4",
+				"dweb:/ipfs/QmSxLwYjicf9zWFuieRc8WQwE4FisA1Um5jp1iSa731TGt"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+			"keccak256": "0x963ea7f0b48b032eef72fe3a7582edf78408d6f834115b9feadd673a4d5bd149",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d6520943ea55fdf5f0bafb39ed909f64de17051bc954ff3e88c9e5621412c79c",
+				"dweb:/ipfs/QmWZ4rAKTQbNG2HxGs46AcTXShsVytKeLs7CUCdCSv5N7a"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
+			"keccak256": "0xea5339a7fff0ed42b45be56a88efdd0b2ddde9fa480dc99fef9a6a4c5b776863",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://841619682637df5579b4c396d281d6c55b26f1b1acce1d0ab67bead5e39cf60c",
+				"dweb:/ipfs/QmNRtuKp43ZHJwswdyT3GivY4fDMvz3cxBe1FfDthG1JGj"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
+			"keccak256": "0x9a3b990bd56d139df3e454a9edf1c64668530b5a77fc32eb063bc206f958274a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0895399d170daab2d69b4c43a0202e5a07f2e67a93b26e3354dcbedb062232f7",
+				"dweb:/ipfs/QmUM1VH3XDk559Dsgh4QPvupr3YVKjz87HrSyYzzVFZbxw"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
+			"keccak256": "0xc6cef87559d0aeffdf0a99803de655938a7779ec0a3cd5d4383483ad85565a09",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92ad7e572cf44e6b4b37631b44b62f9eb9fb1cf14d9ce51c1504d5dc7ccaf758",
+				"dweb:/ipfs/QmcnbqX85tsWnUXPmtuPLE4SczME2sJaTfmqEFkuAJvWhy"
+			]
+		},
+		"@openzeppelin/contracts/interfaces/IERC1271.sol": {
+			"keccak256": "0x0705a4b1b86d7b0bd8432118f226ba139c44b9dcaba0a6eafba2dd7d0639c544",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c45b821ef9e882e57c256697a152e108f0f2ad6997609af8904cae99c9bd422e",
+				"dweb:/ipfs/QmRKCJW6jjzR5UYZcLpGnhEJ75UVbH6EHkEa49sWx2SKng"
+			]
+		},
+		"@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+			"keccak256": "0x1d4afe6cb24200cc4545eed814ecf5847277dfe5d613a1707aad5fceecebcfff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://383fb7b8181016ac5ccf07bc9cdb7c1b5045ea36e2cc4df52bcbf20396fc7688",
+				"dweb:/ipfs/QmYJ7Cg4WmE3rR8KGQxjUCXFfTH6TcwZ2Z1f6tPrq7jHFr"
+			]
+		},
+		"@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
+			"keccak256": "0xabf3f59bc0e5423eae45e459dbe92e7052c6983628d39008590edc852a62f94a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://89c2a0f70157c13845be5cb49b078a6374fee3a78fa950052a3af26190255da8",
+				"dweb:/ipfs/QmUcvMEQH1oMM2pUyMuDiBUKdvvnTz1NRB8bmPHrVq8725"
+			]
+		},
+		"@openzeppelin/contracts/proxy/Proxy.sol": {
+			"keccak256": "0xc130fe33f1b2132158531a87734153293f6d07bc263ff4ac90e85da9c82c0e27",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8831721b6f4cc26534d190f9f1631c3f59c9ff38efdd911f85e0882b8e360472",
+				"dweb:/ipfs/QmQZnLErZNStirSQ13ZNWQgvEYUtGE5tXYwn4QUPaVUfPN"
+			]
+		},
+		"@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol": {
+			"keccak256": "0x85439e74ab467b6a23d45d32bdc9506cbc3760320289afd605f11638c4138e95",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e18633c182e445895e5a70f9e79f2558d0f6eac86767fd1d90552177df2955c",
+				"dweb:/ipfs/QmagUFUJbiNGRGGajg9CF5LPuopc44XSCtcCaYvQasBuX9"
+			]
+		},
+		"@openzeppelin/contracts/proxy/beacon/IBeacon.sol": {
+			"keccak256": "0xd50a3421ac379ccb1be435fa646d66a65c986b4924f0849839f08692f39dde61",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ada1e030c0231db8d143b44ce92b4d1158eedb087880cad6d8cc7bd7ebe7b354",
+				"dweb:/ipfs/QmWZ2NHZweRpz1U9GF6R1h65ri76dnX7fNxLBeM2t5N5Ce"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0x24b04b8aacaaf1a4a0719117b29c9c3647b1f479c5ac2a60f5ff1bb6d839c238",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://43e46da9d9f49741ecd876a269e71bc7494058d7a8e9478429998adb5bc3eaa0",
+				"dweb:/ipfs/QmUtp4cqzf22C5rJ76AabKADquGWcjsc33yjYXxXC4sDvy"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0xd6153ce99bcdcce22b124f755e72553295be6abcd63804cfdffceb188b8bef10",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://35c47bece3c03caaa07fab37dd2bb3413bfbca20db7bd9895024390e0a469487",
+				"dweb:/ipfs/QmPGWT2x3QHcKxqe6gRmAkdakhbaRgx3DLzcakHz5M4eXG"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"@openzeppelin/contracts/utils/StorageSlot.sol": {
+			"keccak256": "0xd5c50c54bf02740ebd122ff06832546cb5fa84486d52695a9ccfd11666e0c81d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://39e096c60a6eb1c6a257122d515496bd92d0c6a693a8f07acb6aa4b1263e95d4",
+				"dweb:/ipfs/QmPs5trJBacCiSkezP6tpevapuRYWNY6mqSFzsMCJj7e6B"
+			]
+		},
+		"@openzeppelin/contracts/utils/Strings.sol": {
+			"keccak256": "0xaf159a8b1923ad2a26d516089bceca9bdeaeacd04be50983ea00ba63070f08a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6f2cf1c531122bc7ca96b8c8db6a60deae60441e5223065e792553d4849b5638",
+				"dweb:/ipfs/QmPBdJmBBABMDCfyDjCbdxgiqRavgiSL88SYPGibgbPas9"
+			]
+		},
+		"@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+			"keccak256": "0xdb7f5c28fc61cda0bd8ab60ce288e206b791643bcd3ba464a70cbec18895a2f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bf52bdf22a33263f5ca6227a35faeac3b81e7d2c692fbcc6a079d488710c5900",
+				"dweb:/ipfs/QmcmsjkP4yq3UhiJbvyzwufaY2EKh1zhHaRK8ATag2cpD2"
+			]
+		},
+		"@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol": {
+			"keccak256": "0xbb5c92a62f2a917ec08667ebc024d5f4172ae3594cd5f4eaa997485ed0440d81",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://392c009a19ece7831c9851d8f47fa8a1ee7ae81eeff01040a976cc110b0b9a3b",
+				"dweb:/ipfs/QmbtmS8RRPVNghAu9qWieesPkyrabQSypVpgbyhfzzubCe"
+			]
+		},
+		"contracts/NFT/DeBridgeNFTDeployer.sol": {
+			"keccak256": "0xeb172f1e6eb306e6afbf9a85673386cb5f59a0e51f5c91693e9630e8296efe6d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://43850710149aa94a9f63edc36fe0fb75b996c6a434ce6121d73ec4dc652b9e95",
+				"dweb:/ipfs/QmZmpVYz7i86rtEZpd1yGAmZyCKQD4rf2Tw29sYKriwVvx"
+			]
+		},
+		"contracts/NFT/DeNFT.sol": {
+			"keccak256": "0xa3e3a44c4560405feaa7e8c25f6b8da5da51373eab60b0b3fa1a23ce8fc68c22",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e47d0acec311da1ea4a1510be0a9247fc30b59e8d0433080613306e479d9251c",
+				"dweb:/ipfs/QmW1enuQYedf3czm1oSgxi1XiCqqzRADiN8ExTTQKorLgw"
+			]
+		},
+		"contracts/NFT/ERC721WithPermitUpgradable.sol": {
+			"keccak256": "0x6ee3b3ca4e52539ce61f15c4f730e146b28919fded61b09940d0794efc79550f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8c23c41c0894ff29ed9186cded9e0eefab4dca2622dd48778e3d23cebe2f6052",
+				"dweb:/ipfs/QmeUz7egjimnx7p4ju9qcuDDCaw9FN7SnfG2Cfvwfs9CTK"
+			]
+		},
+		"contracts/NFT/NFTBridge.sol": {
+			"keccak256": "0x6ab53e6f29a1c0d521f16336a493495638f236bc8b7111f1ecf6cc48e80d1544",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://db57ca0af8a93d347e5ef0ed3245a6df3e0851c5e6cd1c95466037923fe35fc4",
+				"dweb:/ipfs/QmPdJqerE6CNLThbHMqimZbxHz7y9Z7QQZ3tQotPj6wcKZ"
+			]
+		},
+		"contracts/NFT/interfaces/IDeNFT.sol": {
+			"keccak256": "0xc7738b9f11e6595d84153dafc529fe0cd87fe185b8b0ddf05eefa0d3566f4809",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ebd9ff0e332916ad6a085fd687558b2d168120259ba726f762591f3b1fe81af0",
+				"dweb:/ipfs/QmUi72U5RnujnNsHzXxDra1M35z28kV2H7N1AKkaFgVSMy"
+			]
+		},
+		"contracts/NFT/interfaces/IERC4494.sol": {
+			"keccak256": "0x582cc7ec4453748545ec16c3729c1c56188a9b4fbee561d3fe404fe47d53c7c7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://18e5849923c4ae4f8706eb29673f2985b9bc1f023eff19d3623c18e7d7757478",
+				"dweb:/ipfs/QmeNMvJVXhuCDdTLBgwnUpYEFiBxg4QXbFeuiTdHaqXh3q"
+			]
+		},
+		"contracts/NFT/interfaces/INFTBridge.sol": {
+			"keccak256": "0x822ea187de279db2054846ca4d408af07bc8a596d0e559e3a4392626e5bbb86c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6b6f30fc0368a4c857446fd90cd124f353929cfe112e549ccdb40448cf62528f",
+				"dweb:/ipfs/QmZ62FqVd4VXzaxmtyHeDviaNHiJHnjUwemCuebcW1Borm"
+			]
+		},
+		"contracts/interfaces/ICallProxy.sol": {
+			"keccak256": "0xe439be8c55de2fa4bc0c61ddfe1f913669a3b205587c695f4a3c9cc8c04f12a7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4d048bccc54f24de715716b65d2d0955620d8c4c287c7bd26ad05908c22a6a40",
+				"dweb:/ipfs/QmPU8qspwG6gEA6qeATynLsQMEes144ECfRiU4DHdhBKaC"
+			]
+		},
+		"contracts/interfaces/IDeBridgeGate.sol": {
+			"keccak256": "0x9b7176990758de57084da7319dad09c5d94d933d40c082a1e2ed75bf8ee54b95",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40ba7d6e81e4f8689c5aae09890331ceccd94288c949435b5a3f98d1e414ca3b",
+				"dweb:/ipfs/QmWjRLT2bQB6bBq96WcGF8udUpWrUkRt2Eg3ZSpn9h4ZrK"
+			]
+		},
+		"contracts/interfaces/IDeBridgeToken.sol": {
+			"keccak256": "0x524616c4fef6725d6dec2cfd59b065f187508115ef913575f14bd7efb674ce5d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1e7e8b1c700fd27ab084fa3293ca1cf42fff0a231fef1efa926af0934942c0a8",
+				"dweb:/ipfs/QmSmf4Rzrsq2UhnQJdw9gfd7fa3aaE8p2QVk175W2suxhd"
+			]
+		},
+		"contracts/interfaces/IDeBridgeTokenDeployer.sol": {
+			"keccak256": "0x19317a754c92ef193dd277c7736f996235f1bd6090211a220868092f630368ed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4a5378c88975928e3552b8ac1c66fa50140f5e09f69a265e95f91e27a8e5eab5",
+				"dweb:/ipfs/QmZ3Sx4isnb3jFeXc7eTPVyCtMYpYsKsMciyZmeDHCfhZ6"
+			]
+		},
+		"contracts/interfaces/IERC20Permit.sol": {
+			"keccak256": "0x58afe9f35435986185df0cd2c7133c13d44a7ae331c62fe7903279d605ae54db",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://184093d05e23f9e891070a2936ea8d307b81361cba104cfb2364b9ec35b3eeaa",
+				"dweb:/ipfs/QmeZkmSrfGyHNtgfQeYym3V175sY3SWwwJwf46KoURPS5J"
+			]
+		},
+		"contracts/interfaces/IFlashCallback.sol": {
+			"keccak256": "0xf7971f2d171a3ce73581b633361ddaf2050f2548135c937d2e5c3c8eb032ddfa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cecc06c2a683316c2883a5901365db45d8d7709ca23125e312e3d0043f9a1024",
+				"dweb:/ipfs/QmSeZRBxbjT8hSLFDYH6kuh4GqDpiukJRo7GnBvT7YGfJB"
+			]
+		},
+		"contracts/interfaces/ISignatureVerifier.sol": {
+			"keccak256": "0x291601f45fdb68759f1fcaa3a15b57d4dc286f685c8a495994aa3bc2713e2b97",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a2a3197d8e3e33bc1736c6103b5eb6be747faef61bfe7ab29d10ab70f3680db",
+				"dweb:/ipfs/QmS3n3HV9KQzhddpLyRt89BNPnoDe3yD3GwpR8gsNmXpB1"
+			]
+		},
+		"contracts/interfaces/IWETH.sol": {
+			"keccak256": "0xa641cbfa72db0da1a8960493a51601a5927e0ff7303c2627668b689984bc6ace",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3c20498c59358b2addd7779d7169a8ae43cd4469deefd5a38efe6203d21b7208",
+				"dweb:/ipfs/QmS59FzTaEaC96CqjEpKQ22MTCmEZqU7jzdoMtpYBNpqvm"
+			]
+		},
+		"contracts/interfaces/IWethGate.sol": {
+			"keccak256": "0x1263f070038773314be8d456fafe0cc3c3c1d76d2f82d04db5506e16cc0aadf9",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://df41df242da8dd78d616666e7b65ef4f1ef3136b0361dbed0fadcde41059df03",
+				"dweb:/ipfs/QmUDiiJn6ouwyeop4m3yG4bahX6eBgJR3BrTqb6vt1J3p9"
+			]
+		},
+		"contracts/libraries/Flags.sol": {
+			"keccak256": "0x7170ab318dad7d08cecd001001f674a63f9d22a4198744622d18d1f9e885852b",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://7869fc9215a7f850ddc23ce5d4dea98e20656c131e153fa4236f57fa91ec2c80",
+				"dweb:/ipfs/QmcuVtBkR3o8ivfYkWd6xwpTJpW4xHEnYmq8TmMKz38Njn"
+			]
+		},
+		"contracts/libraries/SignatureUtil.sol": {
+			"keccak256": "0xea8375cb006112c914843d6fc476f686dfd89c14e729244545bc6dcba831d968",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://1ebee62becc614375368a8bbc1f859aec8804a893152e6be9f589972347ca389",
+				"dweb:/ipfs/QmNcf5pH2qKVEihbHhK5JHMb2Z9wBhU3m3RmAtJbGNVaiq"
+			]
+		},
+		"contracts/periphery/DeBridgeTokenProxy.sol": {
+			"keccak256": "0xa07c24dde2a715a6425302071d19b8a2688871bb979f1b7955ddf6e0cc4728a2",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://21ff6aaae8728e4db48150e1892ec9acc6d0971095804485920c39368e328550",
+				"dweb:/ipfs/QmSfLybST7mw6rz8ah11RSYNMo4VfQLm9sfsXrvqm1ki8E"
+			]
+		},
+		"contracts/transfers/DeBridgeGate.sol": {
+			"keccak256": "0xf0a89121a091b382d83fe90b2c6399b14cf552b67c2f58bc909c6e3a5a8e280a",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://67db6255e3800d8c0e5322b8ac8ece79df08ac4724b6d228df74d4a845fbda9e",
+				"dweb:/ipfs/Qme3meRJR9ZmZ75rSsHVY5bLh7cYh5jt9Bu9LAebsJJfju"
+			]
+		}
+	},
+	"version": 1
+}
